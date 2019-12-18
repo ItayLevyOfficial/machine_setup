@@ -1,0 +1,13 @@
+---
+- hosts: all
+  
+  tasks:
+  - name: Copy vim configuration.
+    copy:
+      src: /home/awsome/.vimrc
+      dest: "{{ ansible_env.HOME }}"
+
+  - name: Copy bash configuration.
+    copy:
+      src: /home/awsome/.bashrc
+      dest: "{{ ansible_env.HOME }}"

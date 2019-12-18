@@ -1,0 +1,12 @@
+#!/usr/bin/expect -f
+# USAGE: ./automated_setup.exp IPADDR PASSWORD
+set IPAddress [lindex $argv 0];
+set PASSWORD [lindex $argv 1];
+
+set timeout -1
+spawn ./setup.sh $IPAddress
+expect "Are you sure you want to continue connecting (yes/no)? "
+send "yes\r"
+expect "Password: "
+send "$PASSWORD\r"
+expect eof
